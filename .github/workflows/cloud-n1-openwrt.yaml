@@ -71,13 +71,13 @@ jobs:
         ./$SCRIPT_SH
         cd openwrt
         cat <<EOF > feeds.conf.default
-src-git packages https://github.com/coolsnowwolf/packages
-src-git luci https://github.com/coolsnowwolf/luci
-src-git routing https://github.com/coolsnowwolf/routing
-src-git telephony https://github.com/openwrt/telephony.git;openwrt-23.05
-src-git kenzo https://github.com/kenzok8/openwrt-packages
-src-git small https://github.com/kenzok8/small
-EOF
+        src-git packages https://github.com/coolsnowwolf/packages
+        src-git luci https://github.com/coolsnowwolf/luci
+        src-git routing https://github.com/coolsnowwolf/routing
+        src-git telephony https://github.com/openwrt/telephony.git;openwrt-23.05
+        src-git kenzo https://github.com/kenzok8/openwrt-packages
+        src-git small https://github.com/kenzok8/small
+        EOF
         ./scripts/feeds update -a
         cat feeds/packages/utils/xfsprogs/Makefile
         sed -i 's/TARGET_CFLAGS += -DHAVE_MAP_SYNC/TARGET_CFLAGS += -DHAVE_MAP_SYNC -D_LARGEFILE64_SOURCE/' feeds/packages/utils/xfsprogs/Makefile
